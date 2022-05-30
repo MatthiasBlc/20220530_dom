@@ -4,7 +4,6 @@ const foot = document.getElementsByTagName('footer');
 let nbClickFoot = 0
 
 foot[0].addEventListener("click", function () {
-  // console.log("clique");
   nbClickFoot ++;
   console.log(`click numéro ${nbClickFoot}`);
 });
@@ -13,33 +12,28 @@ foot[0].addEventListener("click", function () {
 // Fonctionnalité 2 :
 let menu = document.getElementById("navbarHeader")
 let menuButton = document.getElementsByClassName("navbar-toggler")
-// console.log(menu.classList);
 menuButton[0].addEventListener("click", function () {
 menu.classList.toggle("collapse")
 });
 
 
 // Fonctionnalité 3 :
-let card = document.getElementsByClassName("col-md-4");
-let cardOneEdit = card[0].querySelectorAll("button") ;
-// console.log(card);
-// console.log(cardOneEdit);
+let cards = document.getElementsByClassName("col-md-4");
+let cardOneEdit = cards[0].querySelectorAll("button") ;
 cardOneEdit[1].addEventListener("click", function () {
-  card[0].style ="color: red";
+  cards[0].style ="color: red";
 });
 
 
 // Fonctionnalité 4 :
-let cardTwoEdit = card[1].querySelectorAll("button") ;
+let cardTwoEdit = cards[1].querySelectorAll("button") ;
 let cardTwoEditStatus = false;
-// console.log(card);
-// console.log(cardOneEdit);
 cardTwoEdit[1].addEventListener("click", function () {
 if (cardTwoEditStatus === false) {
-  card[1].style ="color: green"
+  cards[1].style ="color: green"
   cardTwoEditStatus = true
 }else if (cardTwoEditStatus === true) {
-  card[1].style ="color: black";
+  cards[1].style ="color: black";
   cardTwoEditStatus = false;
 }
 });
@@ -47,9 +41,7 @@ if (cardTwoEditStatus === false) {
 
 // Fonctionnalité 5 :
 let navbar = document.getElementsByClassName("navbar");
-// let bootstrap = document.querySelectorAll('link[rel=stylesheet]');
 let bootstrapOffStatus = false;
-
 
 navbar[0].addEventListener("dblclick", function () {
   if (bootstrapOffStatus === false) {
@@ -66,6 +58,34 @@ navbar[0].addEventListener("dblclick", function () {
 });
 
 
+// Fonctionnalité 6 :
+let cardsList = document.querySelectorAll('.card');
+console.log(cardsList[0]);
+
+cardsList.forEach((card) => {
+  card.addEventListener("mouseenter", function () {
+    card.querySelector(".card-text").classList.toggle("collapse");
+    let image = card.querySelector("img");
+    if (image.style.width === "20%") {
+      image.style ="width: 100%";
+    }else {
+      image.style ="width: 20%";
+    }
+  });
+});
+
+// Fonctionnalité 7 :
+
+document.querySelector("a.btn-secondary").addEventListener("click", function(){
+  let cardBlock = document.querySelectorAll("div.row")[1];
+  cardBlock.insertBefore(cardBlock.lastChild, cardBlock.firstChild);
+});
+
+
+
+
+
+// Fonctionnalité 8 :
 
 
 
@@ -73,38 +93,6 @@ navbar[0].addEventListener("dblclick", function () {
 
 
 
+// Fonctionnalité 9 :
 
 
-
-
-
-
-
-
-
-
-
-
-
-// function menuToggle(params) {
-  
-// }
-
-
-
-// TRASH DRAFT
-
-// addEventListener("click", function(){ };
-
-
-// const foot = document.getElementsByClassName("text-muted");
-
-
-// for (var i = 0 ; i < comment.length; i++) {
-//   comment[i].addEventListener('click' , showComment , false ) ; 
-// }
-
-// const element = document.getElementById("myBtn");
-// element.addEventListener("click", function() {
-//   document.getElementById("demo").innerHTML = "Hello World";
-// });
